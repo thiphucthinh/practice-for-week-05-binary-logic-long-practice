@@ -7,7 +7,8 @@ const addZeros = require('../utils/addZeros');
 /******************************************************************************/
 
 const asciiTo8bit = str => {
-  // Your code here
+  const binaryArr = str.split("").map(el => el.charCodeAt(0).toString(2).padStart(8, 0));
+  return binaryArr.join("");
 };
 
 /******************************************************************************/

@@ -3,27 +3,42 @@
 
 /******************************************************************************/
 
-// Helper function to convert a binary string into an array of 8-bit strings
-const binaryStringToArray = str => {
-  let binary8bitStr = '';
-  let count = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    binary8bitStr += str[i];
-    count++;
-
-    if (count % 8 === 0) {
-      if (!str[i + 1]) break;
-      binary8bitStr += ',';
-    }
-  }
-
-  return binary8bitStr.split(',');
-};
 
 const binaryToAscii = str => {
-  // Your code here
+  let asciiStr = "";
+
+  for (let i = 0; i < str.length; i += 8) {
+    // const binaryChunk = str.substr(i, 8);
+    const binaryChunk = str.slice(i, i + 8);
+    const decimal = parseInt(binaryChunk, 2);
+    const asciiChar = String.fromCharCode(decimal);
+    asciiStr += asciiChar;
+  }
+
+  return asciiStr;
 };
+
+
+
+
+// Helper function to convert a binary string into an array of 8-bit strings
+// const binaryStringToArray = str => {
+//   let binary8bitStr = '';
+//   let count = 0;
+
+//   for (let i = 0; i < str.length; i++) {
+//     binary8bitStr += str[i];
+//     count++;
+
+//     if (count % 8 === 0) {
+//       if (!str[i + 1]) break;
+//       binary8bitStr += ',';
+//     }
+//   }
+
+//   return binary8bitStr.split(',');
+// };
+
 
 /******************************************************************************/
 
